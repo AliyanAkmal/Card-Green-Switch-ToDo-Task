@@ -7,11 +7,12 @@ const Button = ({ content, handleClick }) => {
         onClick={handleClick}
         style={{
           padding: "8px 13px",
-          backgroundColor: "mediumSeaGreen",
+          backgroundColor: "#9290C3",
           border: "none",
           fontSize: "14px",
           fontWeight: "700",
           borderRadius: "5px",
+          color: "white",
         }}
       >
         {content}

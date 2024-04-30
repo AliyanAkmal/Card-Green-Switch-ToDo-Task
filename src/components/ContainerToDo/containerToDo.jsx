@@ -25,18 +25,23 @@ const ContainerToDo = ({
     return setInputVal(e.target.value);
   };
   const handleAddTo = () => {
-    setFirstList((preVal) => [...preVal, inputVal]);
-    setInputVal("");
-    setNew(false);
+    if (inputVal !== undefined && inputVal !== "") {
+      setFirstList((preVal) => [...preVal, inputVal]);
+      setInputVal("");
+      setNew(false);
+    }
   };
   return (
     <>
       <div
         style={{
-          background: "whiteSmoke",
+          background: "#1B1A55",
           width: "400px",
           textAlign: "center",
           padding: "20px",
+          borderRadius: "10px",
+          color: "white",
+          backgroundColor: "#1B1A55",
         }}
       >
         <h1>{title}</h1>

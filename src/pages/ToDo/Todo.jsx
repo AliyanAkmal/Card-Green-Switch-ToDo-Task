@@ -66,15 +66,16 @@ const Todo = () => {
       return index !== currentIdex;
     });
     setCurrentList(filterData);
-    // if (currentList === firstList) {
-    //   setSecondList((preVal) => [...preVal, CurrentListdata]);
-    // } else if (currentList === SecondList) {
-    //   setThirdList((preVal) => [...preVal, CurrentListdata]);
-    // }
   };
 
   return (
-    <div style={{ display: "flex", justifyContent: "space-around" }}>
+    <div
+      style={{
+        display: "flex",
+        justifyContent: "space-around",
+        alignItems: "self-start",
+      }}
+    >
       <ContainerToDo
         firstList={firstList}
         setFirstList={setFirstList}

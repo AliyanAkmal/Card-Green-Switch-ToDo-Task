@@ -4,7 +4,8 @@ const Wrapper = ({ children }) => {
       style={{
         padding: "15px 10px",
         width: "100vw",
-        backgroundColor: "#FFF8E1",
+        height: "100vh",
+        backgroundColor: "#070F2B",
       }}
     >
       {children}

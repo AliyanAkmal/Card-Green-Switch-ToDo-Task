@@ -14,6 +14,7 @@ const CardToDo = ({
         width: "300px",
         margin: "20px",
         borderRadius: "5px",
+        background: "#535C91",
       }}
     >
       <button style={{ padding: "5px 10px" }} onClick={handleClose}>

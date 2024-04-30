@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Button from "../button";
 
 const CardToRender = ({
-  firstList,
+  // firstList,
   contentInCard,
 
   handleNextClick,
@@ -46,26 +46,43 @@ const CardToRender = ({
   };
   console.log(currentIdex);
   return (
-    <div style={{ padding: "15px", border: "2px solid black", margin: "10px" }}>
+    <div
+      style={{
+        padding: "15px",
+        border: "2px solid black",
+        margin: "10px",
+        borderRadius: "10px",
+        background: "#535C91",
+      }}
+    >
       <h1>card </h1>
       <input
         type="text"
         style={{
           border: "none",
           padding: "5px 10px",
-          background: "transparent",
+          background: "#1B1A55",
           fontSize: "20px",
-          fontWeight: "bold",
+          fontWeight: "900",
           textAlign: "center",
+          color: "white",
           outline: `${edit ? "solid 2px" : "none"}`,
           marginBottom: "5px",
+          borderRadius: "5px",
         }}
         readOnly={!edit}
         value={newvalu}
         onChange={handleOnchage}
       />
       {/* <h2>{contentInCard}</h2> */}
-      <div style={{ display: "flex", gap: "10px", justifyContent: "center" }}>
+      <div
+        style={{
+          display: "flex",
+          gap: "10px",
+          justifyContent: "center",
+          paddingTop: "10px",
+        }}
+      >
         {titleOne ? null : <Button content="Back" handleClick={handleBack} />}
 
         {edit ? (
