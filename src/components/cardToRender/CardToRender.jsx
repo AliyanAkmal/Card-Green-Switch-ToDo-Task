@@ -52,7 +52,7 @@ const CardToRender = ({
         border: "2px solid black",
         margin: "10px",
         borderRadius: "10px",
-        background: "#535C91",
+        background: "transparent",
       }}
     >
       <h1>card </h1>

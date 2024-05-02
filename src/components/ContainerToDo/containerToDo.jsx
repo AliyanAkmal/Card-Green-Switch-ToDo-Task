@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { memo, useState } from "react";
 import Button from "../button";
 import CardToRender from "../cardToRender/CardToRender";
 import CardToDo from "../cardToDo/CardToDo";

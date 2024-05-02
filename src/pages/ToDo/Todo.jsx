@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 
 import ContainerToDo from "../../components/ContainerToDo/containerToDo";
 
@@ -15,7 +15,7 @@ const Todo = () => {
     setTitleOne("ux/ui");
     setTitleTwo("FrontEnd");
     setTitleThree("Backend");
-  }, []);
+  }, [titleOne, titleTwo, titleThree]);
 
   ////////////////////next////////////////////
   const handleNextClick = (
