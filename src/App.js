@@ -1,12 +1,13 @@
-import Wrapper from "./components/wrapper";
-import Todo from "./pages/ToDo/Todo";
+import { RouterProvider } from "react-router-dom";
+
+import router from "./routes";
 
 function App() {
   return (
     <>
-      <Wrapper>
-        <Todo />
-      </Wrapper>
+      {/* <Wrapper> */}
+      <RouterProvider router={router} />
+      {/* </Wrapper> */}
     </>
   );
 }

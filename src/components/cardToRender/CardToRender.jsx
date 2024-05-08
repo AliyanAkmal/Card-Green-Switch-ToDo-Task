@@ -1,10 +1,8 @@
 import React, { useState } from "react";
 import Button from "../button";
+import { imageURL } from "../../config/Constants";
 
 const CardToRender = ({
-  // firstList,
-  contentInCard,
-
   handleNextClick,
   currentList,
   setCurrentList,
@@ -14,20 +12,29 @@ const CardToRender = ({
   handleDeleteButton,
   titleOne,
   titleThree,
+  title,
+  image,
+  index,
 }) => {
-  // const isFirstCard = index === 0;
-  // const isLastCard = index === currentList.length - 1;
   const [edit, setEdit] = useState(false);
-  const [newvalu, setNewval] = useState(contentInCard);
+  const [newTitle, setNewTitle] = useState(title);
+  const [newImage, setNewImage] = useState(image);
+
   const handleEdit = () => {
     setEdit(true);
   };
-  const handleOnchage = (e) => {
-    setNewval(() => [e.target.value]);
+
+  const handleOnChange = (e) => {
+    setNewTitle(e.target.value);
   };
+
   const handleSave = () => {
     setEdit(false);
-    setCurrentList(newvalu);
+    setCurrentList((prev) => {
+      const updatedList = [...prev];
+      updatedList[currentIdex] = newTitle;
+      return updatedList;
+    });
   };
 
   const handleDelete = () => {
@@ -38,13 +45,15 @@ const CardToRender = ({
       currentIdex
     );
   };
+
   const handleNext = () => {
     handleNextClick(CurrentListdata, currentList, setCurrentList, currentIdex);
   };
+
   const handleBack = () => {
     handleBackClick(CurrentListdata, currentList, setCurrentList, currentIdex);
   };
-  console.log(currentIdex);
+
   return (
     <div
       style={{
@@ -55,7 +64,6 @@ const CardToRender = ({
         background: "transparent",
       }}
     >
-      <h1>card </h1>
       <input
         type="text"
         style={{
@@ -71,10 +79,10 @@ const CardToRender = ({
           borderRadius: "5px",
         }}
         readOnly={!edit}
-        value={newvalu}
-        onChange={handleOnchage}
+        value={newTitle}
+        onChange={handleOnChange}
       />
-      {/* <h2>{contentInCard}</h2> */}
+      {newImage && <img src={imageURL + newImage} alt="api-pic" width="100%" />}
       <div
         style={{
           display: "flex",
@@ -84,15 +92,13 @@ const CardToRender = ({
         }}
       >
         {titleOne ? null : <Button content="Back" handleClick={handleBack} />}
-
         {edit ? (
           <Button content="Save" handleClick={handleSave} />
         ) : (
-          <Button content="edit" handleClick={handleEdit} />
+          <Button content="Edit" handleClick={handleEdit} />
         )}
-
         <Button content="Delete" handleClick={handleDelete} />
-        {titleThree ? null : <Button content="next" handleClick={handleNext} />}
+        {titleThree ? null : <Button content="Next" handleClick={handleNext} />}
       </div>
     </div>
   );

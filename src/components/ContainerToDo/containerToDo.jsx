@@ -1,4 +1,4 @@
-import { memo, useState } from "react";
+import { useState } from "react";
 import Button from "../button";
 import CardToRender from "../cardToRender/CardToRender";
 import CardToDo from "../cardToDo/CardToDo";
@@ -46,10 +46,10 @@ const ContainerToDo = ({
       >
         <h1>{title}</h1>
         {firstList &&
-          firstList.map((data, index) => {
+          firstList?.map((data, index) => {
             return (
               <CardToRender
-                contentInCard={data}
+                {...data}
                 key={index}
                 handleNextClick={handleNextClick}
                 currentList={firstList}
@@ -63,14 +63,14 @@ const ContainerToDo = ({
               />
             );
           })}
-        {Addnew ? (
+        {/* {Addnew ? (
           <CardToDo
             handleClose={handleClose}
             handleInputChange={handleInputChange}
             handleAddTo={handleAddTo}
             inputVal={inputVal}
           />
-        ) : null}
+        ) : null} */}
         <Button content="Create" handleClick={handleClick} />
       </div>
     </>
