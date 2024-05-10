@@ -13,13 +13,13 @@ const CardToRender = ({
   titleOne,
   titleThree,
   title,
-  image,
-  index,
+  // image,
+  // index,
 }) => {
   const [edit, setEdit] = useState(false);
-  const [newTitle, setNewTitle] = useState(title);
-  const [newImage, setNewImage] = useState(image);
-
+  const [newTitle, setNewTitle] = useState(CurrentListdata);
+  // const [newImage, setNewImage] = useState(image);
+  // console.log(title);
   const handleEdit = () => {
     setEdit(true);
   };
@@ -29,11 +29,10 @@ const CardToRender = ({
   };
 
   const handleSave = () => {
-    setEdit(false);
     setCurrentList((prev) => {
-      const updatedList = [...prev];
-      updatedList[currentIdex] = newTitle;
-      return updatedList;
+      return prev.map((item, index) =>
+        index === currentIdex ? newTitle : item
+      );
     });
   };
 
@@ -82,7 +81,7 @@ const CardToRender = ({
         value={newTitle}
         onChange={handleOnChange}
       />
-      {newImage && <img src={imageURL + newImage} alt="api-pic" width="100%" />}
+      {/* {newImage && <img src={ti} alt="api-pic" width="100%" />} */}
       <div
         style={{
           display: "flex",

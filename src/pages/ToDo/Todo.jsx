@@ -11,67 +11,80 @@ const Todo = () => {
   const [titleTwo, setTitleTwo] = useState("");
   const [titleThree, setTitleThree] = useState("");
 
-  useEffect(() => {
-    axios
-      .get("https://api.lumiplace.io/app.v1/api/getArticles")
-      .then(function (response) {
-        // handle success
-        setFirstList(response.data);
-        setSecondList(response.data);
-        setThirdList(response.data);
-        console.log(response.data);
-      })
-      .catch(function (error) {
-        // handle error
-        console.log(error);
-      });
-  }, []);
+  // useEffect(() => {
+  //   axios
+  //     .get("https://api.lumiplace.io/app.v1/api/getArticles")
+  //     .then(function (response) {
+  //       // handle success
+  //       setFirstList(response.data);
+  //       setSecondList(response.data);
+  //       setThirdList(response.data);
+  //       console.log(response.data);
+  //     })
+  //     .catch(function (error) {
+  //       // handle error
+  //       console.log(error);
+  //     });
+  // }, []);
 
   // console.log(data);
   ////////////////////next////////////////////
   const handleNextClick = (
-    currentListData,
+    CurrentListdata,
     currentList,
     setCurrentList,
-    currentIndex
+    currentIdex
   ) => {
     const filteredData = currentList.filter(
-      (data, index) => index !== currentIndex
+      (CurrentListdata, index) => index !== currentIdex
     );
-    setCurrentList(filteredData);
 
     if (currentList === firstList) {
-      setSecondList((prevList) => [...prevList, currentListData]);
+      setFirstList(filteredData);
+      setSecondList((prevList) => [...prevList, CurrentListdata]);
     } else if (currentList === SecondList) {
-      setThirdList((prevList) => [...prevList, currentListData]);
+      setSecondList(filteredData);
+      setThirdList((prevList) => [...prevList, CurrentListdata]);
     }
   };
 
   //////////////////back///////
   const handleBackClick = (
-    currentListData,
+    CurrentListdata,
     currentList,
     setCurrentList,
-    currentIndex
+    currentIdex
   ) => {
     const filteredData = currentList.filter(
-      (data, index) => index !== currentIndex
+      (CurrentListdata, index) => index !== currentIdex
     );
-    setCurrentList(filteredData);
 
     if (currentList === thirdList) {
-      setSecondList((prevList) => [...prevList, currentListData]);
+      setSecondList((prevList) => [...prevList, CurrentListdata]);
+      setThirdList(filteredData);
     } else if (currentList === SecondList) {
-      setFirstList((prevList) => [...prevList, currentListData]);
+      setFirstList((prevList) => [...prevList, CurrentListdata]);
+      setSecondList(filteredData);
     }
   };
   ///////////////////////handleDelete///////////////////
-  const handleDeleteButton = (currentList, setCurrentList, currentIdex) => {
-    const filterData = currentList.filter((data, index) => {
+  const handleDeleteButton = (
+    CurrentListdata,
+    currentList,
+    setCurrentList,
+    currentIdex
+  ) => {
+    const filterData = currentList.filter((CurrentListdata, index) => {
       return index !== currentIdex;
       // console.log(index);
     });
-    setCurrentList(filterData);
+    if (currentList === firstList) {
+      setFirstList(filterData);
+    } else if (currentList === SecondList) {
+      setSecondList(filterData);
+    } else if (currentList === thirdList) {
+      setThirdList(filterData);
+    }
   };
 
   ///////////////////title////////////

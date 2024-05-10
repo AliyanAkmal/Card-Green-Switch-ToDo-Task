@@ -49,7 +49,7 @@ const ContainerToDo = ({
           firstList?.map((data, index) => {
             return (
               <CardToRender
-                {...data}
+                // {...data}
                 key={index}
                 handleNextClick={handleNextClick}
                 currentList={firstList}
@@ -63,14 +63,14 @@ const ContainerToDo = ({
               />
             );
           })}
-        {/* {Addnew ? (
+        {Addnew ? (
           <CardToDo
             handleClose={handleClose}
             handleInputChange={handleInputChange}
             handleAddTo={handleAddTo}
             inputVal={inputVal}
           />
-        ) : null} */}
+        ) : null}
         <Button content="Create" handleClick={handleClick} />
       </div>
     </>
