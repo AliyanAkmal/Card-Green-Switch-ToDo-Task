@@ -3,6 +3,7 @@ import Todo from "../pages/ToDo/Todo";
 import Main from "../pages/main";
 import HomePage from "../pages/BuyCards";
 import Layout from "../components/layout/layout";
+import Card from "../components/cardBuy";
 
 const router = createBrowserRouter([
   {
@@ -20,6 +21,10 @@ const router = createBrowserRouter([
       {
         path: "/buy",
         element: <HomePage />,
+      },
+      {
+        path: "/ui",
+        element: <Card />,
       },
     ],
   },

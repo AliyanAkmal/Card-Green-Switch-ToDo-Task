@@ -69,7 +69,7 @@ const Todo = () => {
   };
   ///////////////////////handleDelete///////////////////
   const handleDeleteButton = (
-    CurrentListdata,
+    CurrentListdata,  
     currentList,
     setCurrentList,
     currentIdex

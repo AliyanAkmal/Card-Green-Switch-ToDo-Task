@@ -35,6 +35,11 @@ function Header() {
               List
             </Link>
           </p>
+          <p>
+            <Link style={links.allLinks} to="ui">
+              Ui
+            </Link>
+          </p>
         </div>
         <div style={{ display: "flex", gap: "2rem" }}>
           {" "}
