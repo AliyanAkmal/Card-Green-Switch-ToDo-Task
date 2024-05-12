@@ -18,7 +18,7 @@ export default function BuyCard() {
   useEffect(() => {
     setTimeout(() => {
       setLoading(true);
-    }, 5000);
+    }, 3000);
   });
   return (
     <Skeleton isLoaded={loading}>
