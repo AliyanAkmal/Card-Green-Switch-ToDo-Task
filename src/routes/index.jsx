@@ -1,9 +1,11 @@
-import { Link, createBrowserRouter } from "react-router-dom";
+import { createBrowserRouter } from "react-router-dom";
 import Todo from "../pages/ToDo/Todo";
 import Main from "../pages/main";
 import HomePage from "../pages/BuyCards";
 import Layout from "../components/layout/layout";
 import Card from "../components/cardBuy";
+import Accordian from "../components/accordian";
+import Tabs from "../components/tabs/Tabs";
 
 const router = createBrowserRouter([
   {
@@ -25,6 +27,14 @@ const router = createBrowserRouter([
       {
         path: "/ui",
         element: <Card />,
+      },
+      {
+        path: "/accordian",
+        element: <Accordian />,
+      },
+      {
+        path: "/tabs",
+        element: <Tabs />,
       },
     ],
   },

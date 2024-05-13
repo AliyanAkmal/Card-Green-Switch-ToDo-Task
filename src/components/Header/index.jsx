@@ -40,6 +40,16 @@ function Header() {
               Ui
             </Link>
           </p>
+          <p>
+            <Link style={links.allLinks} to="accordian">
+              accordian
+            </Link>
+          </p>
+          <p>
+            <Link style={links.allLinks} to="tabs">
+              Table Tabs
+            </Link>
+          </p>
         </div>
         <div style={{ display: "flex", gap: "2rem" }}>
           {" "}
