@@ -6,6 +6,8 @@ import Layout from "../components/layout/layout";
 import Card from "../components/cardBuy";
 import Accordian from "../components/accordian";
 import TabsCom from "../components/tabs/Tabs";
+import VisualCom from "../components/visualComp/VisualCom";
+import AlertsComp from "../components/alert/Alerts";
 
 const router = createBrowserRouter([
   {
@@ -35,6 +37,14 @@ const router = createBrowserRouter([
       {
         path: "/tabs",
         element: <TabsCom />,
+      },
+      {
+        path: "/visual",
+        element: <VisualCom />,
+      },
+      {
+        path: "/alert",
+        element: <AlertsComp />,
       },
     ],
   },

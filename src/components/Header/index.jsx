@@ -50,6 +50,16 @@ function Header() {
               Table Tabs
             </Link>
           </p>
+          <p>
+            <Link style={links.allLinks} to="visual">
+              Visual BTN
+            </Link>
+          </p>
+          <p>
+            <Link style={links.allLinks} to="alert">
+              Alert
+            </Link>
+          </p>
         </div>
         <div style={{ display: "flex", gap: "2rem" }}>
           {" "}
