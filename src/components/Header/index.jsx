@@ -60,6 +60,11 @@ function Header() {
               Alert
             </Link>
           </p>
+          <p>
+            <Link style={links.allLinks} to="line">
+              Progress Line
+            </Link>
+          </p>
         </div>
         <div style={{ display: "flex", gap: "2rem" }}>
           {" "}

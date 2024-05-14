@@ -8,6 +8,7 @@ import Accordian from "../components/accordian";
 import TabsCom from "../components/tabs/Tabs";
 import VisualCom from "../components/visualComp/VisualCom";
 import AlertsComp from "../components/alert/Alerts";
+import ProgressLine from "../components/progressLine/Line";
 
 const router = createBrowserRouter([
   {
@@ -45,6 +46,10 @@ const router = createBrowserRouter([
       {
         path: "/alert",
         element: <AlertsComp />,
+      },
+      {
+        path: "/line",
+        element: <ProgressLine />,
       },
     ],
   },
