@@ -21,7 +21,12 @@ export default function BuyCard() {
     }, 3000);
   });
   return (
-    <Skeleton isLoaded={loading}>
+    <Skeleton
+      isLoaded={loading}
+      width="20vw"
+      color="#C1C1C1"
+      borderRadius="5px"
+    >
       <Card maxW="sm">
         <CardBody>
           <Image

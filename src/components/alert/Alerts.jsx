@@ -20,18 +20,21 @@ const AlertsComp = () => {
         <AlertDescription>This is an Alert Component</AlertDescription>
       </Alert>
       <br />
+
       {!circle ? (
-        <CircularProgress
-          value={99}
-          color="#2F855A"
-          size="40px"
-          isIndeterminate
-          p="10px"
-        >
-          <CircularProgressLabel fontWeight="bold" fontSize="14px">
-            99%
-          </CircularProgressLabel>
-        </CircularProgress>
+        <div style={{ textAlign: "center" }}>
+          <CircularProgress
+            value={99}
+            color="#2F855A"
+            size="60px"
+            isIndeterminate
+            p="10px"
+          >
+            <CircularProgressLabel fontWeight="bold" fontSize="14px">
+              99%
+            </CircularProgressLabel>
+          </CircularProgress>
+        </div>
       ) : (
         <Alert
           status="success"
