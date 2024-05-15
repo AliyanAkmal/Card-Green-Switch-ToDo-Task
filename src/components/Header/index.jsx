@@ -65,6 +65,16 @@ function Header() {
               Progress Line
             </Link>
           </p>
+          <p>
+            <Link style={links.allLinks} to="toast">
+              Toast
+            </Link>
+          </p>
+          <p>
+            <Link style={links.allLinks} to="dialog">
+              ALert-Dialog
+            </Link>
+          </p>
         </div>
         <div style={{ display: "flex", gap: "2rem" }}>
           {" "}

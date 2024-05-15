@@ -1,15 +1,37 @@
 import React from "react";
 import "./style.css";
 import { MdVerified } from "react-icons/md";
+import {
+  AlertDialog,
+  AlertDialogBody,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogContent,
+  AlertDialogOverlay,
+  Button,
+  useDisclosure,
+} from "@chakra-ui/react";
 
-const Card = ({ data, setbuyCard }) => {
-  const handleBuySubmit = (data) => {
-    setbuyCard((pre) => {
-      return [...pre, data];
-    });
+const Card = ({
+  data,
+  buyContainer,
+  handleTheCard,
+  handleCLose,
+  currentIndex,
+  buyCard,
+}) => {
+  // console.log(currentIndex);
+  const handleBuySubmit = () => {
+    handleTheCard(data);
   };
-  const handleDelete = (data) => {
-    console.log(data);
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const cancelRef = React.useRef();
+  // const handleDelete = (data) => {
+  //   console.log(data);
+  // };sss
+  ////////////////////////////////
+  const handleCLoseContainer = () => {
+    handleCLose(data, currentIndex, buyCard, onClose);
   };
   return (
     <>
@@ -41,7 +63,7 @@ const Card = ({ data, setbuyCard }) => {
           </div>
         </div>
         <div style={{ padding: "10px" }}>
-          {!setbuyCard ? (
+          {buyContainer === false ? (
             <button
               style={{
                 padding: "8px 15px",
@@ -49,13 +71,13 @@ const Card = ({ data, setbuyCard }) => {
                 borderRadius: "6px",
                 fontWeight: "bolder",
               }}
-              onClick={() => handleDelete(data)}
+              onClick={onOpen}
             >
               delete
             </button>
           ) : (
             <button
-              onClick={() => handleBuySubmit(data)}
+              onClick={handleBuySubmit}
               style={{
                 padding: "8px 15px",
                 backgroundColor: "whiteSmoke",
@@ -68,6 +90,33 @@ const Card = ({ data, setbuyCard }) => {
           )}
         </div>
       </div>
+      {/* /////////////////////////////// */}
+      <AlertDialog
+        isOpen={isOpen}
+        leastDestructiveRef={cancelRef}
+        onClose={onClose}
+      >
+        <AlertDialogOverlay>
+          <AlertDialogContent>
+            <AlertDialogHeader fontSize="lg" fontWeight="bold">
+              Delete Customer
+            </AlertDialogHeader>
+
+            <AlertDialogBody>
+              Are you sure? You can't undo this action afterwards.
+            </AlertDialogBody>
+
+            <AlertDialogFooter>
+              <Button ref={cancelRef} onClick={onClose}>
+                Cancel
+              </Button>
+              <Button colorScheme="red" onClick={handleCLoseContainer} ml={3}>
+                Delete
+              </Button>
+            </AlertDialogFooter>
+          </AlertDialogContent>
+        </AlertDialogOverlay>
+      </AlertDialog>
     </>
   );
 };
