@@ -5,6 +5,7 @@ const CardToDo = ({
   inputVal,
   handleAddTo,
   handleClose,
+  handleKeyDown,
 }) => {
   return (
     <div
@@ -23,10 +24,16 @@ const CardToDo = ({
       <h1>card</h1>
       <input
         onChange={handleInputChange}
+        onKeyDown={handleKeyDown}
         type="text"
         defaultValue={inputVal}
-        color="black"
-        style={{ padding: "8px 14px", borderRadius: "5px", outline: "none" }}
+        style={{
+          padding: "8px 14px",
+          borderRadius: "5px",
+          outline: "none",
+          color: "black",
+          fontWeight: "500",
+        }}
       />
       <div
         style={{

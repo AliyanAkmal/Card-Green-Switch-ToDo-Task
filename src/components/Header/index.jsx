@@ -5,7 +5,6 @@ import image from "../../assets/cardImgs/cardFive.avif";
 import { TbGridDots } from "react-icons/tb";
 import Avatar from "../Avatar";
 import { Link } from "react-router-dom";
-import { hover } from "@testing-library/user-event/dist/hover";
 
 function Header() {
   return (
@@ -66,8 +65,8 @@ function Header() {
             </Link>
           </p>
           <p>
-            <Link style={links.allLinks} to="toast">
-              Toast
+            <Link style={links.allLinks} to="drawer">
+              Drawer
             </Link>
           </p>
         </div>

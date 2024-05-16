@@ -3,12 +3,13 @@ import Todo from "../pages/ToDo/Todo";
 import Main from "../pages/main";
 import HomePage from "../pages/BuyCards";
 import Layout from "../components/layout/layout";
-import Card from "../components/cardBuy";
-import Accordian from "../components/accordian";
-import TabsCom from "../components/tabs/Tabs";
-import VisualCom from "../components/visualComp/VisualCom";
-import AlertsComp from "../components/alert/Alerts";
-import ProgressLine from "../components/progressLine/Line";
+import Card from "../pages/cardBuy";
+import Accordian from "../pages/accordian";
+import TabsCom from "../pages/tabs/Tabs";
+import VisualCom from "../pages/visualComp/VisualCom";
+import AlertsComp from "../pages/alert/Alerts";
+import ProgressLine from "../pages/progressLine/Line";
+import DrawerComp from "../pages/DrawerComp/DrawerComp";
 
 const router = createBrowserRouter([
   {
@@ -51,6 +52,10 @@ const router = createBrowserRouter([
       {
         path: "/line",
         element: <ProgressLine />,
+      },
+      {
+        path: "/drawer",
+        element: <DrawerComp />,
       },
     ],
   },

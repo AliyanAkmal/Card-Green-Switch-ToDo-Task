@@ -31,6 +31,14 @@ const ContainerToDo = ({
       setNew(false);
     }
   };
+  ////////////connecting enter to input//////////////
+  const handleKeyDown = (event) => {
+    if (event.key === "Enter") {
+      setFirstList((preVal) => [...preVal, inputVal]);
+      setInputVal("");
+      setNew(false);
+    }
+  };
   return (
     <>
       <div
@@ -69,6 +77,7 @@ const ContainerToDo = ({
             handleInputChange={handleInputChange}
             handleAddTo={handleAddTo}
             inputVal={inputVal}
+            handleKeyDown={handleKeyDown}
           />
         ) : null}
         <Button content="Create" handleClick={handleClick} />
