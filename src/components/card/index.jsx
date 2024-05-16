@@ -73,7 +73,7 @@ const Card = ({
               }}
               onClick={onOpen}
             >
-              delete
+              Remove
             </button>
           ) : (
             <button

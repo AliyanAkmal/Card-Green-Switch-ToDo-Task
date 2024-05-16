@@ -8,6 +8,8 @@ function CardList({ data, onOpen, handleTheCard, buyContainer }) {
         display: "flex",
         justifyContent: "space-around",
         padding: "15px",
+        flexWrap: "wrap",
+        gap: "1rem",
       }}
     >
       {data?.length > 0 &&

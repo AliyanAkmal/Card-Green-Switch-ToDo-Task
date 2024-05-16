@@ -15,13 +15,15 @@ import {
   AlertDialogCloseButton,
   Button,
 } from "@chakra-ui/react";
+import { Box, useToast } from "@chakra-ui/react";
+import emptyCart from "../../assets/empty-cart.png";
 
 const HomePage = () => {
+  const toast = useToast();
   const [buyCard, setbuyCard] = useState([]);
   const [filterBuy, setbfilterBuy] = useState(buyCard);
   /////////test net/////////////////////////////
-  // const { isOpen, onOpen, onClose } = useDisclosure();
-  // const cancelRef = React.useRef();
+
   //////////////////////////////////////////
   const handleTheCard = (data) => {
     setbuyCard((pre) => {
@@ -35,6 +37,27 @@ const HomePage = () => {
     });
     setbuyCard(filterData);
     onClose();
+
+    if (filterData.length === 0) {
+      toast({
+        title: "Cart is empty.",
+        // description: "We've created your account for you.",
+        status: "success",
+        duration: 2000,
+        // isClosable: true,
+        colorScheme: "red",
+      });
+    }
+    if (filterData.length > 0) {
+      toast({
+        position: "top-right",
+        render: () => (
+          <Box color="white" p={3} bg="blue.500">
+            Item removed
+          </Box>
+        ),
+      });
+    }
   };
 
   return (
@@ -63,18 +86,22 @@ const HomePage = () => {
             display: "flex",
             gap: "2rem",
             justifyContent: "center",
-            paddingTop: "3rem",
+
             flexWrap: "wrap",
           }}
         >
-          <BuyCards
-            buyCard={buyCard}
-            filterBuy={filterBuy}
-            setbfilterBuy={setbfilterBuy}
-            setbuyCard={setbuyCard}
-            handleCLose={handleCLose}
-            // onOpen={onOpen}
-          />
+          {buyCard.length === 0 ? (
+            <img src={emptyCart} alt="empty-Cart" style={style.img} />
+          ) : (
+            <BuyCards
+              buyCard={buyCard}
+              filterBuy={filterBuy}
+              setbfilterBuy={setbfilterBuy}
+              setbuyCard={setbuyCard}
+              handleCLose={handleCLose}
+              // onOpen={onOpen}
+            />
+          )}
         </div>
       </div>
     </>
@@ -82,3 +109,12 @@ const HomePage = () => {
 };
 
 export default HomePage;
+
+const style = {
+  cart: {
+    fontSize: "2rem",
+  },
+  img: {
+    width: "40vw",
+  },
+};
