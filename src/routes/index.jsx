@@ -9,8 +9,6 @@ import TabsCom from "../components/tabs/Tabs";
 import VisualCom from "../components/visualComp/VisualCom";
 import AlertsComp from "../components/alert/Alerts";
 import ProgressLine from "../components/progressLine/Line";
-import Toast from "../components/toast/Toast";
-import ToastComp from "../components/toast/Toast";
 
 const router = createBrowserRouter([
   {
@@ -53,10 +51,6 @@ const router = createBrowserRouter([
       {
         path: "/line",
         element: <ProgressLine />,
-      },
-      {
-        path: "/toast",
-        element: <ToastComp />,
       },
     ],
   },
