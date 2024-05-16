@@ -1,6 +1,17 @@
 import React, { useState } from "react";
-import Button from "../button";
+// import Button from "../button";
 import { imageURL } from "../../config/Constants";
+import {
+  AlertDialog,
+  AlertDialogBody,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogContent,
+  AlertDialogOverlay,
+  Button,
+  useDisclosure,
+  background,
+} from "@chakra-ui/react";
 
 const CardToRender = ({
   handleNextClick,
@@ -36,12 +47,13 @@ const CardToRender = ({
     });
   };
 
-  const handleDelete = () => {
+  const handleCLoseContainer = () => {
     handleDeleteButton(
       CurrentListdata,
       currentList,
       setCurrentList,
-      currentIdex
+      currentIdex,
+      onClose
     );
   };
 
@@ -52,6 +64,9 @@ const CardToRender = ({
   const handleBack = () => {
     handleBackClick(CurrentListdata, currentList, setCurrentList, currentIdex);
   };
+  //////////////////////////////////////
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const cancelRef = React.useRef();
 
   return (
     <div
@@ -90,17 +105,69 @@ const CardToRender = ({
           paddingTop: "10px",
         }}
       >
-        {titleOne ? null : <Button content="Back" handleClick={handleBack} />}
-        {edit ? (
-          <Button content="Save" handleClick={handleSave} />
-        ) : (
-          <Button content="Edit" handleClick={handleEdit} />
+        {titleOne ? null : (
+          <button style={style.btn} content="Back" onClick={handleBack}>
+            Back
+          </button>
         )}
-        <Button content="Delete" handleClick={handleDelete} />
-        {titleThree ? null : <Button content="Next" handleClick={handleNext} />}
+        {edit ? (
+          <button style={style.btn} onClick={handleSave}>
+            Save
+          </button>
+        ) : (
+          <button style={style.btn} onClick={handleEdit}>
+            Edit
+          </button>
+        )}
+        <button style={style.btn} onClick={onOpen}>
+          Delete
+        </button>
+        {titleThree ? null : (
+          <button style={style.btn} onClick={handleNext}>
+            Next
+          </button>
+        )}
       </div>
+      {/* ///////////////////////////// */}
+      <AlertDialog
+        isOpen={isOpen}
+        leastDestructiveRef={cancelRef}
+        onClose={onClose}
+      >
+        <AlertDialogOverlay>
+          <AlertDialogContent>
+            <AlertDialogHeader fontSize="lg" fontWeight="bold">
+              Delete Customer
+            </AlertDialogHeader>
+
+            <AlertDialogBody>
+              Are you sure? You can't undo this action afterwards.
+            </AlertDialogBody>
+
+            <AlertDialogFooter>
+              <Button ref={cancelRef} onClick={onClose}>
+                Cancel
+              </Button>
+              <Button colorScheme="red" onClick={handleCLoseContainer} ml={3}>
+                Delete
+              </Button>
+            </AlertDialogFooter>
+          </AlertDialogContent>
+        </AlertDialogOverlay>
+      </AlertDialog>
     </div>
   );
 };
 
 export default CardToRender;
+
+////////////////
+const style = {
+  btn: {
+    padding: "6px 14px",
+    background: "whitesmoke",
+    color: "black",
+    borderRadius: "6px",
+    fontWeight: "500",
+  },
+};

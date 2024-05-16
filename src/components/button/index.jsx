@@ -6,13 +6,13 @@ const Button = ({ content, handleClick }) => {
       <button
         onClick={handleClick}
         style={{
-          padding: "8px 13px",
-          backgroundColor: "#9290C3",
+          padding: "10px 16px",
+          backgroundColor: "#F2F6FA",
           border: "none",
           fontSize: "14px",
           fontWeight: "700",
           borderRadius: "5px",
-          color: "white",
+          color: "black",
         }}
       >
         {content}

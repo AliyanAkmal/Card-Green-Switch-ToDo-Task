@@ -25,6 +25,7 @@ const CardToDo = ({
         onChange={handleInputChange}
         type="text"
         defaultValue={inputVal}
+        color="black"
         style={{ padding: "8px 14px", borderRadius: "5px", outline: "none" }}
       />
       <div

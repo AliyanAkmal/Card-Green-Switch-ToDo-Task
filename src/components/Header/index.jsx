@@ -21,7 +21,7 @@ function Header() {
       >
         <div style={{ display: "flex", gap: "2rem" }}>
           <p>
-            <Link style={links.allLinks} to="buy">
+            <Link style={links.allLinks} to="/">
               Buy Cards
             </Link>
           </p>
@@ -68,11 +68,6 @@ function Header() {
           <p>
             <Link style={links.allLinks} to="toast">
               Toast
-            </Link>
-          </p>
-          <p>
-            <Link style={links.allLinks} to="dialog">
-              ALert-Dialog
             </Link>
           </p>
         </div>

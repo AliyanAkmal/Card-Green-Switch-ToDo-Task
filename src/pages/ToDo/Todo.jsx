@@ -69,21 +69,24 @@ const Todo = () => {
   };
   ///////////////////////handleDelete///////////////////
   const handleDeleteButton = (
-    CurrentListdata,  
+    CurrentListdata,
     currentList,
     setCurrentList,
-    currentIdex
+    currentIdex,
+    onClose
   ) => {
     const filterData = currentList.filter((CurrentListdata, index) => {
       return index !== currentIdex;
-      // console.log(index);
     });
     if (currentList === firstList) {
       setFirstList(filterData);
+      onClose();
     } else if (currentList === SecondList) {
       setSecondList(filterData);
+      onClose();
     } else if (currentList === thirdList) {
       setThirdList(filterData);
+      onClose();
     }
   };
 

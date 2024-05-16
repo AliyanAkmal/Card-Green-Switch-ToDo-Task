@@ -11,13 +11,16 @@ import AlertsComp from "../components/alert/Alerts";
 import ProgressLine from "../components/progressLine/Line";
 import Toast from "../components/toast/Toast";
 import ToastComp from "../components/toast/Toast";
-import DialogComp from "../components/alertDialog";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Layout />,
     children: [
+      {
+        index: true,
+        element: <HomePage />,
+      },
       {
         path: "/main",
         element: <Main />,
@@ -26,10 +29,7 @@ const router = createBrowserRouter([
         path: "/list",
         element: <Todo />,
       },
-      {
-        path: "/buy",
-        element: <HomePage />,
-      },
+
       {
         path: "/ui",
         element: <Card />,
@@ -57,10 +57,6 @@ const router = createBrowserRouter([
       {
         path: "/toast",
         element: <ToastComp />,
-      },
-      {
-        path: "/dialog",
-        element: <DialogComp />,
       },
     ],
   },
