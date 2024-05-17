@@ -11,15 +11,28 @@ import {
   Stack,
   Image,
   Box,
+  useToast,
 } from "@chakra-ui/react";
 import { Skeleton, SkeletonText } from "@chakra-ui/react";
 export default function BuyCard() {
   const [loading, setLoading] = useState(false);
+  const toast = useToast();
   useEffect(() => {
     setTimeout(() => {
       setLoading(true);
     }, 3000);
   });
+  ///////////////////////////
+  const handleClickCartADD = () => {
+    toast({
+      position: "bottom-right",
+      render: () => (
+        <Box color="white" p={3} bg="mediumseagreen">
+          Item Added
+        </Box>
+      ),
+    });
+  };
   return (
     <Box padding="6" boxShadow="lg" bg="white">
       <Card maxW="sm">
@@ -66,7 +79,11 @@ export default function BuyCard() {
             </Skeleton>
 
             <Skeleton isLoaded={loading}>
-              <Button variant="ghost" colorScheme="blue">
+              <Button
+                variant="ghost"
+                colorScheme="blue"
+                onClick={handleClickCartADD}
+              >
                 Add to cart
               </Button>
             </Skeleton>

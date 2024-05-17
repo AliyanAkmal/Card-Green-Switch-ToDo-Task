@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 // import Button from "../button";
-import { imageURL } from "../../config/Constants";
+// import { imageURL } from "../../config/Constants";
 import {
   AlertDialog,
   AlertDialogBody,
@@ -10,7 +10,8 @@ import {
   AlertDialogOverlay,
   Button,
   useDisclosure,
-  background,
+  Box,
+  // background,
 } from "@chakra-ui/react";
 
 const CardToRender = ({
@@ -69,7 +70,7 @@ const CardToRender = ({
   const cancelRef = React.useRef();
 
   return (
-    <div
+    <Box
       style={{
         padding: "15px",
         border: "2px solid black",
@@ -97,7 +98,7 @@ const CardToRender = ({
         onChange={handleOnChange}
       />
       {/* {newImage && <img src={ti} alt="api-pic" width="100%" />} */}
-      <div
+      <Box
         style={{
           display: "flex",
           gap: "10px",
@@ -127,7 +128,7 @@ const CardToRender = ({
             Next
           </button>
         )}
-      </div>
+      </Box>
       {/* ///////////////////////////// */}
       <AlertDialog
         isOpen={isOpen}
@@ -155,7 +156,7 @@ const CardToRender = ({
           </AlertDialogContent>
         </AlertDialogOverlay>
       </AlertDialog>
-    </div>
+    </Box>
   );
 };
 

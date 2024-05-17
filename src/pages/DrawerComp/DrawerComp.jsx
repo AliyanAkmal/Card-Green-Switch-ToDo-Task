@@ -1,24 +1,43 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Drawer,
   DrawerBody,
-  DrawerFooter,
   DrawerHeader,
   DrawerOverlay,
   DrawerContent,
   DrawerCloseButton,
   useDisclosure,
   Button,
-  Input,
+  Box,
 } from "@chakra-ui/react";
+import Form from "../../components/FormControl/Form";
+import FormCard from "../../components/FormCard/FormCard";
 
 const DrawerComp = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = React.useRef();
+  ////////////////////////////////
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  /////////////////////////////////
+  const [boxState, setBoxState] = useState([]);
+  //////////////////////////////////(
+  const handleSave = (data) => {
+    console.log(data);
+    if (data.name !== "" && data.password !== "" && data.email !== "") {
+      setBoxState((prev) => [...prev, data]);
+      setName("");
+      setEmail("");
+      setPassword("");
+      onClose();
+    }
+  };
+
   return (
     <>
       <Button ref={btnRef} colorScheme="teal" onClick={onOpen}>
-        Open
+        Create account
       </Button>
       <Drawer
         isOpen={isOpen}
@@ -30,21 +49,33 @@ const DrawerComp = () => {
         <DrawerContent>
           <DrawerCloseButton />
           <DrawerHeader>Create your account</DrawerHeader>
-
           <DrawerBody>
-            <Input placeholder="Type here..." />
+            <Form
+              onClose={onClose}
+              handleSave={handleSave}
+              setName={setName}
+              setEmail={setEmail}
+              setPassword={setPassword}
+              name={name}
+              email={email}
+              password={password}
+            />
           </DrawerBody>
-
-          <DrawerFooter>
-            <Button variant="outline" mr={3} onClick={onClose}>
-              Cancel
-            </Button>
-            <Button colorScheme="blue">Save</Button>
-          </DrawerFooter>
         </DrawerContent>
       </Drawer>
+      <Box sx={{ display: "flex", gap: "2rem", flexWrap: "wrap" }}>
+        {boxState.map((data, index) => {
+          return <FormCard key={index} {...data} />;
+        })}
+      </Box>
     </>
   );
 };
 
 export default DrawerComp;
+
+// const style = {
+//   box: {
+//     border: "1px solid black",
+//   },
+// };
