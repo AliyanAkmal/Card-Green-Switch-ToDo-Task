@@ -7,7 +7,7 @@ function CardList({ data, onOpen, handleTheCard, buyContainer }) {
       style={{
         display: "flex",
         justifyContent: "space-around",
-        padding: "15px",
+        padding: "3rem 10px",
         flexWrap: "wrap",
         gap: "1rem",
       }}

@@ -5,6 +5,7 @@ import image from "../../assets/cardImgs/cardFive.avif";
 import { TbGridDots } from "react-icons/tb";
 import Avatar from "../Avatar";
 import { Link } from "react-router-dom";
+import MenuComp from "../menu/MenuComp";
 
 function Header() {
   return (
@@ -74,7 +75,7 @@ function Header() {
           {" "}
           <p style={{ fontSize: "14px" }}>Gmail</p>
           <p style={{ fontSize: "14px" }}>Images</p>
-          <TbGridDots style={{ fontSize: "22px", color: "grey" }} />
+          <MenuComp />
           <Avatar src={image} alt="Profile_Picture" />
         </div>
       </div>

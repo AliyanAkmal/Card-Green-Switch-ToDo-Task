@@ -2,6 +2,7 @@ import React from "react";
 import SearchBar from "../../components/searchBar";
 import Button from "../../components/button";
 import logoImg from "../../assets/google logo.png";
+import MenuComp from "../../components/menu/MenuComp";
 
 const Main = () => {
   return (
@@ -32,6 +33,7 @@ const Main = () => {
           </p>
         </div>
       </div>
+      <MenuComp />
     </>
   );
 };
