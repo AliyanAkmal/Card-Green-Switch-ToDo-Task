@@ -33,7 +33,6 @@ const Main = () => {
           </p>
         </div>
       </div>
-      <MenuComp />
     </>
   );
 };

@@ -1,8 +1,13 @@
 import React from "react";
 
-function Avatar({ src, alt }) {
+function Avatar({ src, alt, onClick }) {
   return (
-    <img src={src} alt={alt} style={{ borderRadius: "25px", width: "30px" }} />
+    <img
+      src={src}
+      onClick={onClick}
+      alt={alt}
+      style={{ borderRadius: "25px", width: "40px" }}
+    />
   );
 }
 

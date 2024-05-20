@@ -34,42 +34,53 @@ const MenuComp = () => {
       >
         <Box>
           <MenuItem background="transparent">
-            <Image
-              boxSize="2rem"
-              src={mapImg}
-              alt="Fluffybuns the destroyer"
-              mr="12px"
-            />
+            <a href="https://www.googlemaps.com" target="_blank">
+              <Image
+                boxSize="2rem"
+                src={mapImg}
+                alt="Fluffybuns the destroyer"
+                mr="12px"
+              />
+            </a>
           </MenuItem>
         </Box>
         <Box>
           <MenuItem background="transparent">
-            <Image
-              boxSize="2rem"
-              src={email}
-              alt="Fluffybuns the destroyer"
-              mr="12px"
-            />
+            <a href="https://mail.google.com" target="_blank">
+              <Image
+                boxSize="2rem"
+                src={email}
+                alt="Fluffybuns the destroyer"
+                mr="12px"
+              />
+            </a>
           </MenuItem>
         </Box>
         <Box>
           <MenuItem background="transparent">
-            <Image
-              boxSize="2rem"
-              src={playStore}
-              alt="Fluffybuns the destroyer"
-              mr="12px"
-            />
+            <a
+              href="https://play.google.com/store/games?device=windows"
+              target="_blank"
+            >
+              <Image
+                boxSize="2rem"
+                src={playStore}
+                alt="Fluffybuns the destroyer"
+                mr="12px"
+              />
+            </a>
           </MenuItem>
         </Box>
         <Box>
           <MenuItem background="transparent">
-            <Image
-              boxSize="2rem"
-              src={youtube}
-              alt="Fluffybuns the destroyer"
-              mr="12px"
-            />
+            <a href="https://www.youtube.com" target="_blank">
+              <Image
+                boxSize="2rem"
+                src={youtube}
+                alt="Fluffybuns the destroyer"
+                mr="12px"
+              />
+            </a>
           </MenuItem>
         </Box>
       </MenuList>
