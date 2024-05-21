@@ -12,14 +12,26 @@ import {
   Button,
   Input,
   useDisclosure,
-  Avatar,
+  Box,
+  useToast,
 } from "@chakra-ui/react";
-import { TbGridDots } from "react-icons/tb";
+import { Avatar } from "@chakra-ui/react";
+import {
+  Menu,
+  MenuButton,
+  MenuList,
+  MenuItem,
+  MenuItemOption,
+  MenuGroup,
+  MenuOptionGroup,
+  MenuDivider,
+} from "@chakra-ui/react";
 import AvatarFromLocal from "../Avatar";
 import { Link } from "react-router-dom";
 import MenuComp from "../menu/MenuComp";
 
 function Header() {
+  const toast = useToast();
   //////////////////////////////////
   const [username, setUsername] = useState({
     name: "aliyan",
@@ -32,9 +44,9 @@ function Header() {
   const [inputName, setInput] = useState("");
   const [password, setPassword] = useState("");
   ///////////////////////////
-  const [profile, setProfile] = useState(
-    <Avatar name="Dan Abrahmov" src="https://bit.ly/dan-abramov" />
-  );
+
+  ////////////////////////////
+  const [profile, setProfile] = useState();
   const handleOnChangeName = (e) => {
     setInput(e.target.value);
     console.log(e.target.value);
@@ -48,7 +60,27 @@ function Header() {
     if (inputName === username.name && password === username.password) {
       setProfile(image);
       onClose();
+      toast({
+        title: "Signed in successfully",
+        // description: "We've created your account for you.",
+        status: "success",
+        duration: 2000,
+        // isClosable: true,
+        colorScheme: "blue",
+      });
     }
+  };
+  //////////////////////
+  const handleSignOut = () => {
+    setProfile(null);
+    toast({
+      title: "You have been signed out",
+      // description: "We've created your account for you.",
+      status: "success",
+      duration: 2000,
+      // isClosable: true,
+      colorScheme: "red",
+    });
   };
   return (
     <>
@@ -118,41 +150,69 @@ function Header() {
           <p style={{ fontSize: "14px" }}>Gmail</p>
           <p style={{ fontSize: "14px" }}>Images</p>
           <MenuComp />
-          <AvatarFromLocal
-            src={profile}
-            alt="Profile"
-            onClick={onOpen}
-            ref={btnRef}
-          />
+          {profile !== image ? (
+            <Avatar src="https://bit.ly/broken-link" onClick={onOpen} />
+          ) : (
+            <AvatarFromLocal
+              src={profile}
+              alt="Profile"
+              onClick={onOpen}
+              ref={btnRef}
+            />
+          )}
+          {profile !== image ? (
+            <Drawer
+              isOpen={isOpen}
+              placement="right"
+              onClose={onClose}
+              finalFocusRef={btnRef}
+            >
+              <DrawerOverlay />
+              <DrawerContent>
+                <DrawerCloseButton />
+                <DrawerHeader>Sign in to your Account</DrawerHeader>
+
+                <DrawerBody>
+                  <Input
+                    placeholder="Email "
+                    mb={4}
+                    onChange={handleOnChangeName}
+                  />
+                  <Input
+                    placeholder="Password"
+                    onChange={handleOnChangePassword}
+                  />
+                </DrawerBody>
+
+                <DrawerFooter>
+                  <Button variant="outline" mr={3} onClick={onClose}>
+                    Cancel
+                  </Button>
+                  <Button colorScheme="blue" onClick={handleOnSave}>
+                    Sign In
+                  </Button>
+                </DrawerFooter>
+              </DrawerContent>
+            </Drawer>
+          ) : (
+            <Box pos="absolute" right="15%" top="5%">
+              <Menu isOpen={isOpen} onClose={onClose} finalFocusRef={btnRef}>
+                <MenuList>
+                  <MenuGroup title="Setting">
+                    <MenuItem>Profile</MenuItem>
+                    <MenuItem onClick={handleSignOut}>Sign Out</MenuItem>
+                  </MenuGroup>
+                  <MenuDivider />
+                  <MenuGroup title="Help">
+                    <MenuItem>Docs</MenuItem>
+                    <MenuItem>FAQ</MenuItem>
+                  </MenuGroup>
+                </MenuList>
+              </Menu>
+            </Box>
+          )}
         </div>
       </div>
-
-      <Drawer
-        isOpen={isOpen}
-        placement="right"
-        onClose={onClose}
-        finalFocusRef={btnRef}
-      >
-        <DrawerOverlay />
-        <DrawerContent>
-          <DrawerCloseButton />
-          <DrawerHeader>Sign in to your Account</DrawerHeader>
-
-          <DrawerBody>
-            <Input placeholder="Email " mb={4} onChange={handleOnChangeName} />
-            <Input placeholder="Password" onChange={handleOnChangePassword} />
-          </DrawerBody>
-
-          <DrawerFooter>
-            <Button variant="outline" mr={3} onClick={onClose}>
-              Cancel
-            </Button>
-            <Button colorScheme="blue" onClick={handleOnSave}>
-              Sign In
-            </Button>
-          </DrawerFooter>
-        </DrawerContent>
-      </Drawer>
     </>
   );
 }
@@ -167,4 +227,9 @@ const links = {
     fontWeight: "bold",
     color: "black",
   },
+  // menu: {
+  //   // position: "absolute",
+  //   // right: "100%",
+  //   background: "red",
+  // },
 };
