@@ -17,7 +17,6 @@ function BuyCards({ buyCard, setbfilterBuy, filterBuy, handleCLose }) {
               buyContainer={buyContainer}
               handleCLose={handleCLose}
               buyCard={buyCard}
-              // onOpen={onOpen}
             />
           );
         })}

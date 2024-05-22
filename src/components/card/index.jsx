@@ -19,17 +19,15 @@ const Card = ({
   handleCLose,
   currentIndex,
   buyCard,
+  id,
 }) => {
-  // console.log(currentIndex);
   const handleBuySubmit = () => {
-    handleTheCard(data);
+    handleTheCard(data, id);
   };
+
   const { isOpen, onOpen, onClose } = useDisclosure();
   const cancelRef = React.useRef();
-  // const handleDelete = (data) => {
-  //   console.log(data);
-  // };sss
-  ////////////////////////////////
+
   const handleCLoseContainer = () => {
     handleCLose(data, currentIndex, buyCard, onClose);
   };

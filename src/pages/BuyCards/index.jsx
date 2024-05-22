@@ -20,14 +20,20 @@ import {
 
 const HomePage = () => {
   const toast = useToast();
+
   const [buyCard, setbuyCard] = useState([]);
   const [filterBuy, setbfilterBuy] = useState(buyCard);
   /////////test net/////////////////////////////
 
   //////////////////////////////////////////
-  const handleTheCard = (data) => {
-    setbuyCard((pre) => {
-      return [...pre, data];
+  const handleTheCard = (data, id) => {
+    setbuyCard((prev) => {
+      const filteredCart = prev.filter((item) => item.id !== id);
+
+      if (filteredCart.length === prev.length) {
+        return [...prev, data];
+      }
+      return prev;
     });
   };
   //////////////////
@@ -35,16 +41,17 @@ const HomePage = () => {
     const filterData = buyCard.filter((data, index) => {
       return index !== currentIndex;
     });
+
     setbuyCard(filterData);
     onClose();
 
     if (filterData.length === 0) {
       toast({
         title: "Cart is empty.",
-        // description: "We've created your account for you.",
+
         status: "success",
         duration: 2000,
-        // isClosable: true,
+
         colorScheme: "red",
       });
     }
@@ -75,10 +82,10 @@ const HomePage = () => {
       onClose();
       toast({
         title: "Cart is empty.",
-        // description: "We've created your account for you.",
+
         status: "success",
         duration: 2000,
-        // isClosable: true,
+
         colorScheme: "red",
       });
     }

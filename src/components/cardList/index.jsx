@@ -1,7 +1,7 @@
 import React from "react";
 import Card from "../card";
 
-function CardList({ data, onOpen, handleTheCard, buyContainer }) {
+function CardList({ data, handleTheCard }) {
   return (
     <div
       style={{
@@ -14,7 +14,15 @@ function CardList({ data, onOpen, handleTheCard, buyContainer }) {
     >
       {data?.length > 0 &&
         data?.map((item, index) => {
-          return <Card data={item} key={index} handleTheCard={handleTheCard} />;
+          return (
+            <Card
+              data={item}
+              key={index}
+              id={item.id}
+              // currentIndex={index}
+              handleTheCard={handleTheCard}
+            />
+          );
         })}
     </div>
   );

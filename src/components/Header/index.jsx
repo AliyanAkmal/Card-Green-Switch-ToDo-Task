@@ -18,12 +18,9 @@ import {
 import { Avatar } from "@chakra-ui/react";
 import {
   Menu,
-  MenuButton,
   MenuList,
   MenuItem,
-  MenuItemOption,
   MenuGroup,
-  MenuOptionGroup,
   MenuDivider,
 } from "@chakra-ui/react";
 import AvatarFromLocal from "../Avatar";
