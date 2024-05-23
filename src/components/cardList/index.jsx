@@ -19,7 +19,6 @@ function CardList({ data, handleTheCard }) {
               data={item}
               key={index}
               id={item.id}
-              // currentIndex={index}
               handleTheCard={handleTheCard}
             />
           );

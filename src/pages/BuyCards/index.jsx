@@ -22,9 +22,10 @@ const HomePage = () => {
   const toast = useToast();
 
   const [buyCard, setbuyCard] = useState([]);
-  const [filterBuy, setbfilterBuy] = useState(buyCard);
-  /////////test net/////////////////////////////
 
+  // const [filterBuy, setbfilterBuy] = useState(buyCard);
+  /////////test net/////////////////////////////
+  const [num, setNum] = useState(1);
   //////////////////////////////////////////
   const handleTheCard = (data, id) => {
     setbuyCard((prev) => {
@@ -75,6 +76,7 @@ const HomePage = () => {
       onOpen();
     }
   };
+  ////////////////////////
   //////////////////////////////////////////
   const handleEmptyAllItems = () => {
     if (buyCard.length !== 0) {
@@ -82,12 +84,21 @@ const HomePage = () => {
       onClose();
       toast({
         title: "Cart is empty.",
-
         status: "success",
         duration: 2000,
-
         colorScheme: "red",
       });
+    }
+  };
+  ///////////////////////
+  const increment = () => {
+    if (num <= 10) {
+      setNum(num + 1);
+    }
+  };
+  const decrement = () => {
+    if (num >= 1) {
+      setNum(num - 1);
     }
   };
 
@@ -112,7 +123,7 @@ const HomePage = () => {
             Cart
           </h1>
           <div style={style.btnDiv}>
-            {" "}
+            <h1 style={style.amount}>Total Amount: </h1>
             <button onClick={handleOnOpen} style={style.btn}>
               Empty All
             </button>
@@ -132,10 +143,12 @@ const HomePage = () => {
           ) : (
             <BuyCards
               buyCard={buyCard}
-              filterBuy={filterBuy}
-              setbfilterBuy={setbfilterBuy}
               setbuyCard={setbuyCard}
               handleCLose={handleCLose}
+              setNum={setNum}
+              num={num}
+              increment={increment}
+              decrement={decrement}
               // onOpen={onOpen}
             />
           )}
@@ -186,6 +199,12 @@ const style = {
     borderRadius: "5px",
   },
   btnDiv: {
-    textAlign: "end",
+    display: "flex",
+    justifyContent: "space-between",
+    padding: "5px 10px",
+  },
+  amount: {
+    fontWeight: "bold",
+    fontSize: "20px",
   },
 };

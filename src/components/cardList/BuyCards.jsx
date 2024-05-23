@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Card from "../card";
 
-function BuyCards({ buyCard, setbfilterBuy, filterBuy, handleCLose }) {
+function BuyCards({ buyCard, handleCLose, setNum, num, decrement, increment }) {
   const [buyContainer, setBuyContainer] = useState(false);
   return (
     <>
@@ -12,11 +12,13 @@ function BuyCards({ buyCard, setbfilterBuy, filterBuy, handleCLose }) {
               data={item}
               key={index}
               currentIndex={index}
-              filterBuy={filterBuy}
-              setbfilterBuy={setbfilterBuy}
               buyContainer={buyContainer}
               handleCLose={handleCLose}
               buyCard={buyCard}
+              setNum={setNum}
+              num={num}
+              decrement={decrement}
+              increment={increment}
             />
           );
         })}

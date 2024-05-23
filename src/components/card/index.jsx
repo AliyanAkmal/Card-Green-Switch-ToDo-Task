@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./style.css";
 import { MdVerified } from "react-icons/md";
 import {
@@ -20,7 +20,14 @@ const Card = ({
   currentIndex,
   buyCard,
   id,
+
+  num,
+  decrement,
+  increment,
 }) => {
+  // let [numPlus, setNumPlus] = useState(0);
+  // const [numMinus, setNumMinus] = useState(0);
+  ///////////////////////
   const handleBuySubmit = () => {
     handleTheCard(data, id);
   };
@@ -31,6 +38,8 @@ const Card = ({
   const handleCLoseContainer = () => {
     handleCLose(data, currentIndex, buyCard, onClose);
   };
+  ///////////////
+
   return (
     <>
       <div className="wholeCard">
@@ -52,7 +61,7 @@ const Card = ({
           <div className="textContainer">
             <div>
               <p style={{ color: "grey" }}>Floor</p>
-              <p style={{ fontWeight: "600" }}>{data.price}</p>
+              <p style={{ fontWeight: "600" }}>{data.price}ETH</p>
             </div>
             <div>
               <p style={{ color: "grey" }}>Total volume</p>
@@ -62,17 +71,61 @@ const Card = ({
         </div>
         <div style={{ padding: "10px" }}>
           {buyContainer === false ? (
-            <button
-              style={{
-                padding: "8px 15px",
-                backgroundColor: "whiteSmoke",
-                borderRadius: "6px",
-                fontWeight: "bolder",
-              }}
-              onClick={onOpen}
-            >
-              Remove
-            </button>
+            <div style={{ display: "flex", justifyContent: "space-between" }}>
+              <button
+                style={{
+                  padding: "8px 15px",
+                  backgroundColor: "whiteSmoke",
+                  borderRadius: "6px",
+                  fontWeight: "bolder",
+                }}
+                onClick={onOpen}
+              >
+                Remove
+              </button>
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  alignItems: "center",
+
+                  padding: "10px",
+                  gap: "1rem",
+                  fontSize: "24px",
+                }}
+              >
+                <button
+                  onClick={decrement}
+                  style={{
+                    background: "#F5F5F5",
+                    padding: "0px 6px",
+                    borderRadius: "5px",
+                  }}
+                >
+                  -
+                </button>
+                <h1
+                  style={{
+                    // border: "1px solid gray",
+                    padding: "0px 5px",
+                    borderRadius: "4px",
+                    background: "#F5F5F5",
+                  }}
+                >
+                  {num} item
+                </h1>
+                <button
+                  style={{
+                    background: "#F5F5F5",
+                    padding: "0px 4px",
+                    borderRadius: "5px",
+                  }}
+                  onClick={increment}
+                >
+                  +
+                </button>
+              </div>
+            </div>
           ) : (
             <button
               onClick={handleBuySubmit}

@@ -24,7 +24,6 @@ const DrawerComp = () => {
   const [boxState, setBoxState] = useState([]);
   //////////////////////////////////(
   const handleSave = (data) => {
-    console.log(data);
     if (data.name !== "" && data.password !== "" && data.email !== "") {
       setBoxState((prev) => [...prev, data]);
       setName("");
