@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Card from "../card";
 
-function BuyCards({ buyCard, handleCLose, setNum, num, decrement, increment }) {
+function BuyCards({ buyCard, handleCLose }) {
   const [buyContainer, setBuyContainer] = useState(false);
   return (
     <>
@@ -15,10 +15,6 @@ function BuyCards({ buyCard, handleCLose, setNum, num, decrement, increment }) {
               buyContainer={buyContainer}
               handleCLose={handleCLose}
               buyCard={buyCard}
-              setNum={setNum}
-              num={num}
-              decrement={decrement}
-              increment={increment}
             />
           );
         })}

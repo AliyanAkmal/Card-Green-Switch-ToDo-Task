@@ -20,10 +20,7 @@ const Card = ({
   currentIndex,
   buyCard,
   id,
-
   num,
-  decrement,
-  increment,
 }) => {
   // let [numPlus, setNumPlus] = useState(0);
   // const [numMinus, setNumMinus] = useState(0);
@@ -83,48 +80,6 @@ const Card = ({
               >
                 Remove
               </button>
-              <div
-                style={{
-                  display: "flex",
-                  justifyContent: "space-between",
-                  alignItems: "center",
-
-                  padding: "10px",
-                  gap: "1rem",
-                  fontSize: "24px",
-                }}
-              >
-                <button
-                  onClick={decrement}
-                  style={{
-                    background: "#F5F5F5",
-                    padding: "0px 6px",
-                    borderRadius: "5px",
-                  }}
-                >
-                  -
-                </button>
-                <h1
-                  style={{
-                    // border: "1px solid gray",
-                    padding: "0px 5px",
-                    borderRadius: "4px",
-                    background: "#F5F5F5",
-                  }}
-                >
-                  {num} item
-                </h1>
-                <button
-                  style={{
-                    background: "#F5F5F5",
-                    padding: "0px 4px",
-                    borderRadius: "5px",
-                  }}
-                  onClick={increment}
-                >
-                  +
-                </button>
-              </div>
             </div>
           ) : (
             <button

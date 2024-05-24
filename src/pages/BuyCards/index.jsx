@@ -17,15 +17,21 @@ import {
   Button,
   useDisclosure,
 } from "@chakra-ui/react";
+import { setArts } from "../../redux/arts/artSlicer";
+import { useDispatch, useSelector } from "react-redux";
 
 const HomePage = () => {
+  const dispatch = useDispatch();
+  dispatch(setArts(cardsData));
+  const { arts } = useSelector((state) => state.arts);
+  /////////////////////////////////////////////
   const toast = useToast();
 
   const [buyCard, setbuyCard] = useState([]);
 
   // const [filterBuy, setbfilterBuy] = useState(buyCard);
   /////////test net/////////////////////////////
-  const [num, setNum] = useState(1);
+
   //////////////////////////////////////////
   const handleTheCard = (data, id) => {
     setbuyCard((prev) => {
@@ -91,22 +97,12 @@ const HomePage = () => {
     }
   };
   ///////////////////////
-  const increment = () => {
-    if (num <= 10) {
-      setNum(num + 1);
-    }
-  };
-  const decrement = () => {
-    if (num >= 1) {
-      setNum(num - 1);
-    }
-  };
 
   return (
     <>
       {/* <WrapperLayout> */}
       <CardList
-        data={cardsData}
+        data={arts}
         setbuyCard={setbuyCard}
         handleTheCard={handleTheCard}
       />
@@ -145,10 +141,7 @@ const HomePage = () => {
               buyCard={buyCard}
               setbuyCard={setbuyCard}
               handleCLose={handleCLose}
-              setNum={setNum}
-              num={num}
-              increment={increment}
-              decrement={decrement}
+
               // onOpen={onOpen}
             />
           )}

@@ -46,11 +46,9 @@ function Header() {
   const [profile, setProfile] = useState();
   const handleOnChangeName = (e) => {
     setInput(e.target.value);
-    console.log(e.target.value);
   };
   const handleOnChangePassword = (e) => {
     setPassword(e.target.value);
-    console.log(e.target.value);
   };
   /////////////////////////
   const handleOnSave = () => {
