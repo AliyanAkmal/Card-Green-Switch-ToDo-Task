@@ -19,15 +19,19 @@ import {
 } from "@chakra-ui/react";
 import { setArts } from "../../redux/arts/artSlicer";
 import { useDispatch, useSelector } from "react-redux";
+import { setBuyArts } from "../../redux/buy/buySlicer";
 
 const HomePage = () => {
+  const [buyCard, setbuyCard] = useState([]);
   const dispatch = useDispatch();
   dispatch(setArts(cardsData));
   const { arts } = useSelector((state) => state.arts);
-  /////////////////////////////////////////////
-  const toast = useToast();
 
-  const [buyCard, setbuyCard] = useState([]);
+  /////////////////////////////////////////////
+  dispatch(setBuyArts(buyCard));
+  const { buyArts } = useSelector((state) => state.buyArts);
+  ///////////////////////////////////////////////
+  const toast = useToast();
 
   // const [filterBuy, setbfilterBuy] = useState(buyCard);
   /////////test net/////////////////////////////
@@ -138,7 +142,7 @@ const HomePage = () => {
             <img src={emptyCart} alt="empty-Cart" style={style.img} />
           ) : (
             <BuyCards
-              buyCard={buyCard}
+              buyCard={buyArts}
               setbuyCard={setbuyCard}
               handleCLose={handleCLose}
 
