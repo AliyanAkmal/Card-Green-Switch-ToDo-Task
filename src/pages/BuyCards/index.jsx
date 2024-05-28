@@ -198,7 +198,7 @@ const style = {
   btnDiv: {
     display: "flex",
     justifyContent: "space-between",
-    padding: "5px 10px",
+    padding: "6px 11px",
   },
   amount: {
     fontWeight: "bold",
