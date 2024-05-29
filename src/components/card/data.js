@@ -31,7 +31,7 @@ const data = [
   {
     id: 3,
     image: imageFour,
-    titleOne: "Filigree – Digital Edition by Matt DesLauriers",
+    titleOne: "Filigree – Digital Edition by Matt",
     boolean: true,
     price: "1.41",
     volume: "7ETH",

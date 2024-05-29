@@ -30,10 +30,11 @@ import MenuComp from "../menu/MenuComp";
 function Header() {
   const toast = useToast();
   //////////////////////////////////
-  const [username, setUsername] = useState({
-    name: "aliyan",
-    password: "2233",
-  });
+  const passObj = {
+    one: { name: "aliyan", password: "1234" },
+    two: { name: "ajmal", password: "12s34" },
+  };
+  const [username, setUsername] = useState(passObj);
   ///////////////////////////////////////
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = React.useRef();
@@ -52,7 +53,10 @@ function Header() {
   };
   /////////////////////////
   const handleOnSave = () => {
-    if (inputName === username.name && password === username.password) {
+    if (
+      (inputName === username.one.name && password === username.one.password) ||
+      (inputName === username.two.name && password === username.two.password)
+    ) {
       setProfile(image);
       onClose();
       toast({
