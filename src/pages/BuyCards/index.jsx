@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import cardsData from "../../components/card/data";
 
@@ -20,13 +20,17 @@ import {
 import { setArts } from "../../redux/arts/artSlicer";
 import { useDispatch, useSelector } from "react-redux";
 import { setBuyArts } from "../../redux/buy/buySlicer";
+import { getArt } from "../../redux/arts/artsActions";
 
 const HomePage = () => {
   const [buyCard, setbuyCard] = useState([]);
   const dispatch = useDispatch();
-  dispatch(setArts(cardsData));
-  const { arts } = useSelector((state) => state.arts);
+  useEffect(() => {
+    dispatch(getArt());
+  }, [dispatch]);
 
+  const { arts } = useSelector((state) => state.arts);
+  console.log(arts);
   /////////////////////////////////////////////
   dispatch(setBuyArts(buyCard));
   const { buyArts } = useSelector((state) => state.buyArts);

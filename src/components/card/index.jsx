@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./style.css";
 import { MdVerified } from "react-icons/md";
+import ImageUrl from "../../env/baseURL";
 import {
   AlertDialog,
   AlertDialogBody,
@@ -41,15 +42,13 @@ const Card = ({
     <>
       <div className="wholeCard">
         <div style={{ height: "200px", width: "100%" }}>
-          <img className="image" src={data.image} alt="" />
+          <img className="image" src={ImageUrl + data.image} alt="" />
         </div>
 
         <div className="mainContainer">
           <div className="title">
-            <p style={{ fontSize: "16px", fontWeight: "600" }}>
-              {data.titleOne}
-            </p>
-            {data.boolean ? (
+            <p style={{ fontSize: "16px", fontWeight: "600" }}>{data.title}</p>
+            {data.status ? (
               <p>
                 <MdVerified style={{ color: "#2081E2", fontSize: "18px" }} />
               </p>
@@ -58,11 +57,11 @@ const Card = ({
           <div className="textContainer">
             <div>
               <p style={{ color: "grey" }}>Floor</p>
-              <p style={{ fontWeight: "600" }}>{data.price}ETH</p>
+              <p style={{ fontWeight: "600" }}>{data.status}ETH</p>
             </div>
             <div>
               <p style={{ color: "grey" }}>Total volume</p>
-              <p style={{ fontWeight: "600" }}>{data.volume}</p>
+              <p style={{ fontWeight: "600" }}>{data.createdAt}</p>
             </div>
           </div>
         </div>
