@@ -2,7 +2,6 @@ import React from "react";
 import Card from "../card";
 
 function CardList({ data, handleTheCard }) {
-  console.log(data);
   return (
     <div
       style={{
@@ -19,7 +18,7 @@ function CardList({ data, handleTheCard }) {
             <Card
               data={item}
               key={index}
-              id={item.articleId}
+              articleId={item.articleId}
               handleTheCard={handleTheCard}
             />
           );

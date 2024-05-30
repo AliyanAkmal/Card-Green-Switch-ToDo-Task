@@ -20,14 +20,14 @@ const Card = ({
   handleCLose,
   currentIndex,
   buyCard,
-  id,
+  articleId,
   num,
 }) => {
   // let [numPlus, setNumPlus] = useState(0);
   // const [numMinus, setNumMinus] = useState(0);
   ///////////////////////
   const handleBuySubmit = () => {
-    handleTheCard(data, id);
+    handleTheCard(data, articleId);
   };
 
   const { isOpen, onOpen, onClose } = useDisclosure();

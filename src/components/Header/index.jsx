@@ -32,7 +32,7 @@ function Header() {
   //////////////////////////////////
   const passObj = {
     one: { name: "aliyan", password: "1234" },
-    two: { name: "ajmal", password: "12s34" },
+    two: { name: "ajmal", password: "1234" },
   };
   const [username, setUsername] = useState(passObj);
   ///////////////////////////////////////

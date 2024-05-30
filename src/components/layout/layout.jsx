@@ -7,7 +7,7 @@ const Layout = () => {
   return (
     <>
       <Header />
-      <div style={{ height: "150vh" }}>
+      <div style={{ height: "250vh" }}>
         <Outlet />
       </div>
       <Footer />

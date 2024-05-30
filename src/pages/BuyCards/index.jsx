@@ -30,7 +30,7 @@ const HomePage = () => {
   }, [dispatch]);
 
   const { arts } = useSelector((state) => state.arts);
-  console.log(arts);
+  // console.log(arts);
   /////////////////////////////////////////////
   dispatch(setBuyArts(buyCard));
   const { buyArts } = useSelector((state) => state.buyArts);
