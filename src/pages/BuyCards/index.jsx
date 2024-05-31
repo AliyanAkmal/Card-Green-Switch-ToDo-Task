@@ -37,9 +37,6 @@ const HomePage = () => {
   ///////////////////////////////////////////////
   const toast = useToast();
 
-  // const [filterBuy, setbfilterBuy] = useState(buyCard);
-  /////////test net/////////////////////////////
-
   //////////////////////////////////////////
   const handleTheCard = (data, id) => {
     setbuyCard((prev) => {
@@ -108,7 +105,6 @@ const HomePage = () => {
 
   return (
     <>
-      {/* <WrapperLayout> */}
       <CardList
         data={arts}
         setbuyCard={setbuyCard}
@@ -149,8 +145,6 @@ const HomePage = () => {
               buyCard={buyArts}
               setbuyCard={setbuyCard}
               handleCLose={handleCLose}
-
-              // onOpen={onOpen}
             />
           )}
         </div>
