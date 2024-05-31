@@ -23,8 +23,10 @@ const Form = ({
   };
 
   const handleSaveData = () => {
-    const data = { name, email, password };
-    handleSave(data);
+    setTimeout(() => {
+      const data = { name, email, password };
+      handleSave(data);
+    }, 1000);
   };
   ///////////////////////////////
   return (
